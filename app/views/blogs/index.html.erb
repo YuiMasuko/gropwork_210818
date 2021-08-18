@@ -1,0 +1,33 @@
+<div class="alert alert-danger" role="alert"><p id="notice"><%= notice %></p></div>
+<div class="conteiner">
+  <div class="row">
+    <h1>Blogs</h1>
+  </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <div class="row">
+        <% @blogs.each do |blog| %>
+          <tr>
+            <td class="col-xs-12 col-md-1"><%= blog.title %></td>
+            <td class="col-xs-12 col-md-2"><%= blog.content %></td>
+            <td class="col-xs-12 col-md-3"><%= link_to 'Show', blog, class:"btn btn-primary" %></td>
+            <td class="col-xs-12 col-md-1"><button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_blog_path(blog) %></button></td>
+            <td class="col-xs-12 col-md-1"><%= link_to 'Destroy', blog, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+          </div>
+      </tbody>
+    </table>
+  <br>
+  <div class="row">
+    <%= link_to 'New Blog', new_blog_path %>
+  </div>
+</div>
